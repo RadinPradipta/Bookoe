@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from 'prop-types';
 
 const StarRating = ({ rating, totalStars = 5 }) => {
   const filledStars = Math.round(rating * totalStars) / totalStars;
@@ -30,6 +30,11 @@ const StarRating = ({ rating, totalStars = 5 }) => {
   }
 
   return <div className="flex gap-1">{stars}</div>;
+};
+
+StarRating.propTypes = {
+  rating: PropTypes.number.isRequired,
+  totalStars: PropTypes.number,
 };
 
 export default StarRating;

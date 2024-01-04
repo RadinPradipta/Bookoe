@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 function Hero({ book }) {
   return (
     <div className="w-[1241px]  mx-auto bg-indigo-50 rounded-[15px] flex items-center justify-around py-[66px] ">
@@ -60,5 +61,16 @@ function Hero({ book }) {
     </div>
   );
 }
+
+Hero.propTypes = {
+  book: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    synopsis: PropTypes.string.isRequired,
+    author: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+    image_url: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default Hero;

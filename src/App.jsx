@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import Navbar from "./Navbar";
-import Hero from "./Hero";
-import BigBookWrapper from "./BigBookWrapper";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import BigBookWrapper from "./components/BigBookWrapper";
 
 function App() {
   const [topPicks, setTopPicks] = useState([]);
@@ -54,7 +54,7 @@ function App() {
       {topPicks.length > 0 && (
         <>
           <Hero book={topPicks.shift()} />
-          {/* <BigBookWrapper book={topPicks} /> */}
+          <BigBookWrapper book={topPicks} />
         </>
       )}
     </>
