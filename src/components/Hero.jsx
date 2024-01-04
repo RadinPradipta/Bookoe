@@ -7,13 +7,13 @@ function Hero({ book }) {
           MUST READs
         </div>
         <div className="font-['Poppins'] text-stone-900 text-[62px] font-semibold leading-[72px] ">
-          <h4>{book.title}</h4>
+          <h4>{book[0].title}</h4>
         </div>
         <div className="w-[446px] mt-[30px] mb-[16px] text-black text-base font-normal font-['Poppins']">
-          {book.synopsis}
+          {book[0].synopsis}
         </div>
         <div className=" text-black text-base font-medium font-['Poppins']">
-          <h1>{book.author.name}</h1>
+          <h1>{book[0].author.name}</h1>
         </div>
         <div className="flex">
           <div className="w-[193px] h-[50px] bg-violet-500 rounded-lg flex items-center justify-evenly">
@@ -47,15 +47,15 @@ function Hero({ book }) {
       <div className="relative w-[408px] h-[390px]">
         <img
           className="w-[280px] h-[390px] rounded-[10px] absolute top-0 z-20"
-          src={book.image_url}
+          src={book[0].image_url}
         />
         <img
-          className="w-[236] h-[328] rounded-[10px] absolute left-[125px] top-[32px] z-10 "
-          src="https://via.placeholder.com/236x328"
+          className="w-[236px] h-[328px] rounded-[10px] absolute left-[125px] top-[32px] z-10 "
+          src={book[1].image_url}
         />
         <img
-          className="rounded-[10px] w-[196] h-[272] absolute top-[59px] left-[212px]  z-0"
-          src="https://via.placeholder.com/196x272"
+          className="rounded-[10px] w-[196px] h-[272px] absolute top-[59px] left-[212px]  z-0"
+          src={book[2].image_url}
         />
       </div>
     </div>

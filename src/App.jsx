@@ -19,12 +19,13 @@ function App() {
 
   return (
     <>
-      <Navbar />      
+      <Navbar />
       {topPicks.length > 0 && (
         <>
-          <Hero book={topPicks.shift()} />
-          <BigBookWrapper book={topPicks.slice(0, 4)} />
-          <SmallBookWrapper book={topPicks.slice(4, 9)} />
+        {console.log(topPicks)}
+          <Hero book={topPicks.slice(0, 3)} />
+          <BigBookWrapper book={topPicks.slice(3, 7)} />
+          <SmallBookWrapper book={topPicks.slice(7, 12)} />
         </>
       )}
       <FooterTCA />

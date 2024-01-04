@@ -11,7 +11,7 @@ async function fetchTopPicks() {
     const filteredTopPicks = json.data.filter(
       (book) => book.is_top_pick === true
     );
-    const randomTopPicks = chooseRandomBooks(filteredTopPicks, 9);
+    const randomTopPicks = chooseRandomBooks(filteredTopPicks, 11);
     console.log(randomTopPicks);
     console.log("fetched");
     return randomTopPicks;
