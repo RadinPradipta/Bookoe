@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 function Hero({ book }) {
   return (
     <div className="w-[1241px]  mx-auto bg-indigo-50 rounded-[15px] flex items-center justify-around py-[66px] ">
@@ -15,10 +16,10 @@ function Hero({ book }) {
         <div className=" text-black text-base font-medium font-['Poppins']">
           <h1>{book[0].author.name}</h1>
         </div>
-        <div className="flex">
+        <button className="flex">
           <div className="w-[193px] h-[50px] bg-violet-500 rounded-lg flex items-center justify-evenly">
             <div className="text-white text-xl font-medium font-['Poppins']">
-              Read Book
+              <Link to={`/books/${book[0].id}`}>Read Book</Link>
             </div>
             <svg
               width="27"
@@ -41,7 +42,7 @@ function Hero({ book }) {
           <div className="text-violet-500 text-xl font-medium font-['Poppins'] w-[314px] h-[50px] rounded-lg border border-violet-500 flex items-center justify-center">
             See All Recomendations
           </div>
-        </div>
+        </button>
       </div>
 
       <div className="relative w-[408px] h-[390px]">

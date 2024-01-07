@@ -1,20 +1,34 @@
 // fetching.js
-  const ENDPOINT = "https://bookapi.cm.hmw.lol/api/books";
-  const url = `${ENDPOINT}`;
+  const ENDPOINT = "https://bookapi.cm.hmw.lol/api/books?page=";
+  
 async function fetchTopPicks() {
 
 
   try {
     console.log("fetching");
+    const rand= Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+    const url = `${ENDPOINT}${rand}`;
     const response = await fetch(url);
     const json = await response.json();
     const filteredTopPicks = json.data.filter(
       (book) => book.is_top_pick === true
     );
-    const randomTopPicks = chooseRandomBooks(filteredTopPicks, 11);
-    console.log(randomTopPicks);
-    console.log("fetched");
-    return randomTopPicks;
+    if(filteredTopPicks.length>11){
+      const randomTopPicks = chooseRandomBooks(filteredTopPicks, 11);
+      console.log(randomTopPicks);
+      console.log("fetched");
+      return randomTopPicks;
+    }
+    else{
+      const randomTopPicks = chooseRandomBooks(filteredTopPicks, filteredTopPicks.length);
+      console.log(randomTopPicks);
+      console.log("fetched");
+      return randomTopPicks;
+    }
+    // const randomTopPicks = chooseRandomBooks(filteredTopPicks, 11);
+    // console.log(randomTopPicks);
+    // console.log("fetched");
+    // return randomTopPicks;
   } catch (error) {
     console.error("fetch errors", error);
     return [];
