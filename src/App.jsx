@@ -6,6 +6,7 @@ import BigBookWrapper from "./components/BigBookWrapper";
 import { fetchTopPicks } from "./helpers/fetcher.js";
 import SmallBookWrapper from "./components/SmallBookWrapper.jsx";
 import FooterTCA from "./components/FooterTCA.jsx";
+import Footer from "./components/Footer.jsx";
 function App() {
   const [topPicks, setTopPicks] = useState([]);
 
@@ -29,6 +30,7 @@ function App() {
         </>
       )}
       <FooterTCA />
+      <Footer />
     </>
   );
 }
