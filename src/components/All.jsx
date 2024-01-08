@@ -12,7 +12,7 @@ export default function All() {
           {console.log(topPicks)}
           <Hero book={topPicks.slice(0, 3)} />
           <BigBook book={topPicks.slice(3, 7)} />
-          <SmallBookWrapper book={topPicks.slice(7, 12)} />
+          <SmallBookWrapper book={topPicks.slice(7)} />
         </>
       )}
     </div>

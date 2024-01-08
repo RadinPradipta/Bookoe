@@ -1,6 +1,7 @@
 // FetchingContext.js
 import  { createContext, useContext, useState, useEffect } from "react";
-import { fetchTopPicks } from "./fetcher"; // Assuming your fetchTopPicks function is in a separate file
+// eslint-disable-next-line no-unused-vars
+import { fetchAllBooks, fetchTopPicks } from "./fetcher"; // Assuming your fetchTopPicks function is in a separate file
 
 const FetchingContext = createContext();
 
@@ -8,10 +9,23 @@ const FetchingContext = createContext();
  const FetchingProvider = ({ children }) => {
   const [randomTopPicks, setRandomTopPicks] = useState([]);
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const topPicks = await fetchTopPicks();
+  //       setRandomTopPicks(topPicks);
+  //     } catch (error) {
+  //       console.error("Error fetching top picks", error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []); 
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const topPicks = await fetchTopPicks();
+        const topPicks = await fetchAllBooks();
         setRandomTopPicks(topPicks);
       } catch (error) {
         console.error("Error fetching top picks", error);

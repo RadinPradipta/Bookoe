@@ -1,22 +1,29 @@
 import PropTypes from "prop-types";
 import StarRating from "./StarRating";
 import { Link } from "react-router-dom";
+import TextTruncate from "react-text-truncate";
 
 // WrapperComponent is the wrapper component
 const SmallBookWrapper = ({ book }) => {
   return (
     <div className="w-[1241px] mx-auto mt-[113px]">
-      <div className="flex justify-between">
+      <div className="flex justify-evenly flex-wrap">
         {book.map((item, index) => (
           <div key={index}>
-            <div className="w-[260px] h-[551px] flex flex-col justify-between">
+            <div className="w-[260px] h-[551px] flex flex-col justify-between mb-6">
               <img
                 className="w-[260px] h-[340px] rounded-lg mb-[10px]"
                 src={item.image_url}
               />
 
               <div className="text-black text-2xl font-semibold font-['Poppins'] mb-2">
-                {item.title}
+                
+                <TextTruncate
+                    line={2}
+                    element="span"
+                    truncateText="…"
+                    text={item.title}
+                  />
               </div>
               <div className="text-black text-xl font-normal font-['Poppins'] mb-2 ">
                 by {item.author.name}

@@ -1,6 +1,7 @@
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 import StarRating from "./StarRating";
 import { Link } from "react-router-dom";
+import TextTruncate from "react-text-truncate";
 
 // WrapperComponent is the wrapper component
 const BigBook = ({ book }) => {
@@ -11,14 +12,19 @@ const BigBook = ({ book }) => {
           <div key={index}>
             <div className="w-[564px] max-h-[346px] relative grid grid-cols-2 gap-4 px-2 mb-20 ">
               <img
-                className="w-[277px] min-h-[346px] max-h-[346px] rounded-lg object-contain"
+                className="object-cover w-[277px] min-h-[346px] max-h-[346px] rounded-lg"
                 src={item.image_url}
               />
 
               {/* 2nd Column */}
               <div className="flex flex-col justify-between ">
-                <div className="text-black text-2xl font-semibold font-['Poppins'] mb-2 truncate">
-                  {item.title}
+                <div className="text-black text-2xl font-semibold font-['Poppins'] mb-2">
+                  <TextTruncate
+                    line={3}
+                    element="span"
+                    truncateText="…"
+                    text={item.title}
+                  />
                 </div>
                 <div className="text-black text-xl font-normal font-['Poppins'] mb-2">
                   by {item.author.name}
@@ -27,13 +33,18 @@ const BigBook = ({ book }) => {
                   <StarRating rating={item.rating} />
                 </div>
                 <div className="text-stone-900 text-base font-normal font-['Poppins'] mb-2">
-                  {item.synopsis}
+                  <TextTruncate
+                    line={4}
+                    element="span"
+                    truncateText="…"
+                    text={item.synopsis}
+                  />
                 </div>
                 <button className="w-[270px] h-[50px] rounded-lg border border-violet-500 mb-2 text-violet-500 text-xl font-medium font-['Poppins'] flex items-center justify-center">
                   <Link to={`/books/${item.id}`}>Read Book</Link>
                 </button>
               </div>
-            </div>            
+            </div>
           </div>
         ))}
       </div>
@@ -54,6 +65,5 @@ BigBook.propTypes = {
     })
   ).isRequired,
 };
-
 
 export default BigBook;

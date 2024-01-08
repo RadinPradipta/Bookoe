@@ -13,8 +13,8 @@ async function fetchTopPicks() {
     const filteredTopPicks = json.data.filter(
       (book) => book.is_top_pick === true
     );
-    if(filteredTopPicks.length>11){
-      const randomTopPicks = chooseRandomBooks(filteredTopPicks, 11);
+    if(filteredTopPicks.length>19){
+      const randomTopPicks = chooseRandomBooks(filteredTopPicks, 19);
       console.log(randomTopPicks);
       console.log("fetched");
       return randomTopPicks;
@@ -25,6 +25,26 @@ async function fetchTopPicks() {
       console.log("fetched");
       return randomTopPicks;
     }
+    // const randomTopPicks = chooseRandomBooks(filteredTopPicks, 11);
+    // console.log(randomTopPicks);
+    // console.log("fetched");
+    // return randomTopPicks;
+  } catch (error) {
+    console.error("fetch errors", error);
+    return [];
+  }
+}
+
+async function fetchAllBooks(){
+  try {
+    console.log("fetching");
+    const rand= Math.floor(Math.random() * (100 - 1 + 1)) + 1;
+    const url = `${ENDPOINT}${rand}`;
+    const response = await fetch(url);
+    const json = await response.json();
+    const books = json.data;
+    console.log(books);
+    return books
     // const randomTopPicks = chooseRandomBooks(filteredTopPicks, 11);
     // console.log(randomTopPicks);
     // console.log("fetched");
@@ -49,4 +69,4 @@ function chooseRandomBooks(bookArray, numberOfBooksToChoose) {
   });
 }
 
-export { fetchTopPicks };
+export { fetchTopPicks,fetchAllBooks };
