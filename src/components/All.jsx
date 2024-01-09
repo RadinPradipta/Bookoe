@@ -1,6 +1,6 @@
 import Hero from "./Hero";
 import BigBook from "./BigBook";
-import SmallBookWrapper from "./SmallBookWrapper";
+import SmallBookWrapper from "./SmallBook";
 import { useFetchingContext } from "../helpers/fetchingContext";
 
 export default function All() {

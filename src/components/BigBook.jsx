@@ -6,7 +6,7 @@ import TextTruncate from "react-text-truncate";
 // WrapperComponent is the wrapper component
 const BigBook = ({ book }) => {
   return (
-    <div className="w-[1241px] mx-auto mt-[116px]">
+    <div className="w-[1241px] mx-auto mt-[116px] mb-[113px]">
       <div className="grid grid-cols-2">
         {book.map((item, index) => (
           <div key={index}>

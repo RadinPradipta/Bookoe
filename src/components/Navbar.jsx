@@ -1,23 +1,16 @@
 import { Link } from "react-router-dom";
 import logoSvg from "../assets/bookoe.png"; // Make sure to replace with the actual path
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
-  const [searchTerm, setSearchTerm] = useState("");
   const [inputValue, setInputValue] = useState("");
   const navigate = useNavigate();
 
   const handleSearch = (event) => {
     event.preventDefault();
-    submitFunction();
-    navigate(`/search/${inputValue}`);
-  
-  };
 
-  const submitFunction = () => {
-    setSearchTerm(inputValue);
+    navigate(`/search/${inputValue}`);
   };
 
   const handleChange = (event) => {
@@ -56,12 +49,6 @@ function Navbar() {
         >
           Top Picks
         </Link>
-        {searchTerm.length > 0 && (
-          <div>
-            {/* Your HTML elements go here */}
-            <p>Youre searching {searchTerm}</p>
-          </div>
-        )}
       </div>
       <div className="flex gap-x-[45px]">
         {/* <input
