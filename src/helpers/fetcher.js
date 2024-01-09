@@ -1,5 +1,5 @@
 // fetching.js
-  const ENDPOINT = "https://bookapi.cm.hmw.lol/api/books?page=";
+  const ENDPOINT = "https://bookapi.cm.hmw.lol/api/books";
   
 async function fetchTopPicks() {
 
@@ -35,11 +35,32 @@ async function fetchTopPicks() {
   }
 }
 
+async function fetchSearchResult({keyword}) {
+
+
+  try {
+    console.log("fetching");
+   const url = `${ENDPOINT}?search=${keyword}`;
+    const response = await fetch(url);
+    const json = await response.json();
+    const books = json.data;
+    console.log(books);
+    return books
+    // const randomTopPicks = chooseRandomBooks(filteredTopPicks, 11);
+    // console.log(randomTopPicks);
+    // console.log("fetched");
+    // return randomTopPicks;
+  } catch (error) {
+    console.error("fetch errors", error);
+    return [];
+  }
+}
+
 async function fetchAllBooks(){
   try {
     console.log("fetching");
     const rand= Math.floor(Math.random() * (100 - 1 + 1)) + 1;
-    const url = `${ENDPOINT}${rand}`;
+    const url = `${ENDPOINT}?page=${rand}`;
     const response = await fetch(url);
     const json = await response.json();
     const books = json.data;
@@ -69,4 +90,4 @@ function chooseRandomBooks(bookArray, numberOfBooksToChoose) {
   });
 }
 
-export { fetchTopPicks,fetchAllBooks };
+export { fetchTopPicks,fetchAllBooks,fetchSearchResult };
